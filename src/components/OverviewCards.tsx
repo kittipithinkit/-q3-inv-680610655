@@ -1,7 +1,9 @@
 import { useItemStore } from '@/store/dataStore';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useState } from 'react';
 
 export function OverviewCards() {
+  const [mode, setMode] = useState<"Overview" | "byCategory">("Overview");
   const inventory = useItemStore((state) => state.inventory);
   const totalProducts = inventory.length;
   const totalUnits = inventory.reduce((acc, item) => acc + item.quantity, 0);
