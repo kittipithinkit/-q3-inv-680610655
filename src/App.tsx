@@ -4,7 +4,7 @@ import { Footer } from "./components/Footer";
 import { OverviewCards } from "./components/OverviewCards";
 import { Tabs, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { useState } from "react";
-
+import { DashboardTabs } from "./components/DashboardTabs";
 
 export default function App() {
   const [mode, setMode] = useState<"Overview" | "byCategory"> ("Overview");
@@ -27,16 +27,8 @@ export default function App() {
           </div>
 
           {/* Put OverviewCards and CategoryCards under DashboardTabs */}
-          <Tabs
-        value={mode}
-        onValueChange={(v) => setMode(v as "Overview" | "byCategory")}
-      >
-        <TabsList>
-          <TabsTrigger value="Overview">Overview</TabsTrigger>
-          <TabsTrigger value="byCategory">By Category</TabsTrigger>
-        </TabsList>
-      </Tabs>
           {/* And then use DashboardTabs here instead */}
+          <DashboardTabs />
           <OverviewCards />
           <ItemList />
         </div>
