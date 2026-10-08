@@ -11,16 +11,17 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+
 
 export function AddItemDialog() {
   const addInventoryItem = useItemStore((state) => state.addInventoryItem);
-
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] =
-    useState<InventoryItem["category"]>("Electronics");
+  const [category, setCategory] = useState<InventoryItem["category"]>("Electronics");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
